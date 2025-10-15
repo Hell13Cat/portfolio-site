@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>200 OK!</title>
+    <!-- Подключаем шрифт Roboto из Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS для темной темы в стиле Material Design */
+        :root {
+            /* Определяем переменные для цветов, чтобы легко их менять */
+            --bg-color: #121212; /* Очень темный фон */
+            --surface-color: #1e1e1e; /* Цвет "поверхности" карточки */
+            --primary-text-color: #e0e0e0; /* Основной светлый текст */
+            --secondary-text-color: #a0a0a0; /* Вторичный, менее яркий текст */
+            --success-color: #4CAF50; /* Яркий зеленый для акцента */
+            --border-color: rgba(255, 255, 255, 0.1); /* Полупрозрачная граница */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов */
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            background-color: var(--surface-color);
+            padding: 40px;
+            border-radius: 12px;
+            /* Ключевой элемент Material Design - тень для создания глубины */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            /* Плавный переход для эффекта при наведении */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Эффект "поднятия" карточки при наведении */
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 12px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            color: var(--success-color);
+            font-size: 2.5em;
+            font-weight: 500; /* Средняя жирность, типичная для Material */
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: var(--secondary-text-color);
+            font-weight: 300; /* Более легкий шрифт для описания */
+        }
+
+        .user-agent-info {
+            margin-top: 30px;
+            text-align: left;
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+        }
+
+        .user-agent-info h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            color: var(--primary-text-color);
+            margin-bottom: 15px;
+        }
+
+        .user-agent-box {
+            background-color: rgba(0, 0, 0, 0.2); /* Полупрозрачный фон для блока */
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+            color: #b3c5d9; /* Светло-синий для технического текста */
+            word-wrap: break-word;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Секция с сообщением об успехе -->
+        <h1>200 OK!</h1>
+
+        <!-- Секция с информацией о User-Agent -->
+        <div class="user-agent-info">
+            <h2>User-Agent:</h2>
+            <div id="userAgent" class="user-agent-box">
+                Загрузка информации...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript остался без изменений, он не зависит от стилей
+        window.onload = function() {
+            const userAgentElement = document.getElementById('userAgent');
+            const userAgentString = navigator.userAgent;
+            userAgentElement.textContent = userAgentString;
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Атрибут lang по умолчанию en -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Динамический заголовок, управляемый через JS -->
+    <title>Warning!</title>
+
+    <style>
+        /* --- Общие стили для темной темы --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212; /* Очень темный фон */
+            color: #e0e0e0; /* Светло-серый текст */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* --- Контейнер --- */
+        .container {
+            position: relative; /* Для позиционирования переключателя языков */
+            max-width: 700px;
+            width: 100%;
+            padding: 40px;
+            background-color: #1e1e1e; /* Темно-серый контейнер */
+            border-radius: 10px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- Переключатель языков --- */
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .lang-switcher button {
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .lang-switcher button:hover {
+            color: #fff;
+        }
+        
+        .lang-switcher button.active {
+            color: #fff;
+            background-color: #3498db;
+            border-radius: 5px;
+        }
+
+        /* --- Заголовки --- */
+        h1 {
+            color: #e74c3c; /* Акцентный красный */
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #3498db; /* Акцентный синий */
+            border-bottom: 2px solid #444;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        /* --- Текст и списки --- */
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #bbb;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 12px;
+            border-bottom: 1px solid #333;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        /* --- Ссылки --- */
+        a {
+            color: #5dade2; /* Светло-синий для ссылок */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #85c1e9;
+            text-decoration: underline;
+        }
+        
+        /* --- Классы для языков --- */
+        .lang {
+            display: none; /* По умолчанию скрываем все языковые элементы */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Переключатель языков -->
+        <div class="lang-switcher">
+            <button id="lang-en" class="active">EN</button>
+            <span>/</span>
+            <button id="lang-ru">RU</button>
+        </div>
+
+        <h1>
+            <span class="lang en">Warning!</span>
+            <span class="lang ru">Внимание!</span>
+        </h1>
+        <p>
+            <span class="lang en">This website is either closed or is preparing to shut down.</span>
+            <span class="lang ru">Этот сайт либо закрыт либо готовиться к закрытию.</span>
+        </p>
+        
+        <!-- Активные сайты -->
+        <h2>
+            <span class="lang en">Active Sites</span>
+            <span class="lang ru">Активные сайты</span>
+        </h2>
+        <ul>
+            <li><a href="https://sorters.nekono.su" target="_blank"><span class="lang en">Sorters</span><span class="lang ru">Сортеры</span></a></li>
+            <li><a href="https://vt-r.nekono.su" target="_blank"><span class="lang en">New accounts of VTubers</span><span class="lang ru">Новые аккаунты витуберов</span></a></li>
+            <li><a href="https://gt.nekono.su" target="_blank"><span class="lang en">Game Server Database (New)</span><span class="lang ru">База данных времени игровых серверов (новое)</span></a></li>
+			<li><a href="https://game-time.nekono.su" target="_blank"><span class="lang en">Game Server Database (Abandoned)</span><span class="lang ru">База данных времени игровых серверов (заброшеное)</span></a></li>
+        </ul>
+
+        <!-- Проекты к закрытию -->
+        <h2>
+            <span class="lang en">Projects to be Closed</span>
+            <span class="lang ru">Проекты к закрытию</span>
+        </h2>
+        <ul>
+			<li><a href="http://old-vtw.nnya.pw" target="_blank"><span class="lang en">The VTuber Wiki</span><span class="lang ru">Вики по витуберам</span></a></li>
+        </ul>
+        
+        <!-- Полезное -->
+		<!--
+        <h2>
+            <span class="lang en">Useful Links</span>
+            <span class="lang ru">Полезное</span>
+        </h2>
+        <ul>
+            <li><a href="mailto:your-email@example.com"><span class="lang en">Contact me via Email</span><span class="lang ru">Связаться со мной по Email</span></a></li>
+            <li><a href="#" target="_blank"><span class="lang en">My GitHub Profile</span><span class="lang ru">Мой профиль на GitHub</span></a></li>
+        </ul>
+		-->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = {
+                en: document.getElementById('lang-en'),
+                ru: document.getElementById('lang-ru')
+            };
+            
+            const langElements = document.querySelectorAll('.lang');
+
+            const titles = {
+                en: "Warning!",
+                ru: "Внимание!"
+            };
+            
+            function setLanguage(lang) {
+                // Устанавливаем язык для HTML тега для доступности
+                document.documentElement.lang = lang;
+                
+                // Устанавливаем заголовок страницы
+                document.title = titles[lang];
+                
+                // Переключаем видимость элементов
+                langElements.forEach(el => {
+                    if (el.classList.contains(lang)) {
+                        el.style.display = 'inline'; // Используем inline, чтобы не ломать поток текста
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
+
+                // Обновляем активную кнопку
+                for (const key in langButtons) {
+                    langButtons[key].classList.remove('active');
+                }
+                langButtons[lang].classList.add('active');
+                
+                // Сохраняем выбор в localStorage, чтобы он запоминался
+                localStorage.setItem('preferredLanguage', lang);
+            }
+
+            // Добавляем обработчики событий
+            langButtons.en.addEventListener('click', () => setLanguage('en'));
+            langButtons.ru.addEventListener('click', () => setLanguage('ru'));
+
+            // Устанавливаем язык при загрузке: либо сохраненный, либо английский по умолчанию
+            const savedLang = localStorage.getItem('preferredLanguage');
+            setLanguage(savedLang || 'en');
+        });
+    </script>
+
+</body>
+</html>
